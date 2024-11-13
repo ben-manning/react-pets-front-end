@@ -1,19 +1,30 @@
-const PetDetail = (props) => {
-  if (!props.selected) {
-    return (<h2>There are no pet details.</h2>)
-  }
+// src/components/PetDetails.jsx
+
+const PetDetails = (props) => {
+  if (!props.selected)
+    return (
+      <div>
+        <h1>NO DETAILS</h1>
+      </div>
+    );
 
   return (
-    <>
-      <h2>Name: { props.selected.name }</h2>
-      <h4>Age: { props.selected.age}</h4>
-      <h4>Breed: { props.selected.breed }</h4>
-      <p>`${props.selected.name} is a ${props.selected.age} year old ${props.selected.breed}`</p>
+    <div>
+      <h1>{props.selected.name}</h1>
+      <h2>Breed: {props.selected.breed}</h2>
+      <h2>
+        Age: {props.selected.age} year{props.selected.age > 1 ? 's' : ''} old
+      </h2>
+      <div>
+        <button onClick={() => props.handleFormView(props.selected)}>
+          Edit
+        </button>
+        <button onClick={() => props.handleRemovePet(props.selected._id)}>
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+};
 
-      <button onClick={() => props.handleFormView(props.selected)}>Edit</button>
-
-    </>
-  )
-}
-
-export default PetDetail;
+export default PetDetails;

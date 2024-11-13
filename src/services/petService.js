@@ -29,8 +29,22 @@ const updatePet = async (formData, petId) => {
   }
 }
 
+// src/services/petService.js
+
+const deletePet = async (petId) => {
+  try {
+    const deletedPet = await axios.delete(`${BASE_URL}/${petId}`);
+    console.log(deletedPet.data)
+    return deletedPet.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
 export { 
   index,
   create,
-  updatePet
+  updatePet,
+  deletePet
 };
