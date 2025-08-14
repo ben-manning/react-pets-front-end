@@ -30,8 +30,8 @@ const PetForm = (props) => {
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} >
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name"> Name </label>
         <input
           id="name"
@@ -56,7 +56,7 @@ const PetForm = (props) => {
           onChange={handleChange}
         />
         <button type="submit">
-          { props.selected ? 'Update Pet' : 'Add New Pet' }
+          {props.selected ? 'Update Pet' : 'Add New Pet'}
         </button>
       </form>
     </div>
